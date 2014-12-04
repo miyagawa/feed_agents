@@ -5,6 +5,7 @@ use JSON;
 
 my $matching_path = shift @ARGV || '/';
 
+# Only special-case User-Agents such as Mozilla fakers
 my @UA = (
     [qr/^Podcasts?\/\d/ => "Apple Podcasts"],
     [qr/^iTunes\/[\d\.]+ \(Macintosh/ => "iTunes (OS X)"],
@@ -22,6 +23,7 @@ my @UA = (
     [qr/ BazQux\/[\d\.]+;/ => "BazQux"],
 );
 
+# "My RSS Reader 1.2.3/blah blah blah" => "My RSS Reader"
 sub normalize_agent {
     my $str = shift;
 
