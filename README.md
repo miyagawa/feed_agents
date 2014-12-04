@@ -7,12 +7,12 @@ Based on Marco Arment's [feed-subscribers.php](https://gist.github.com/marcoarme
 ## Usage
 
 ```
-> tail -10000 /path/to/access_log | ./feed_agents /rss > agents.json
+> tail -100000 /path/to/access_log | ./feed_agents /rss > agents.json
 ```
 
 The program takes an optional argument, which is a path to their feed URL. The default is `/` and it would match all requests.
 
-This will emit a following JSON file in the standard output:
+This will emit a JSON data in the standard output like this:
 
 ```
 {
